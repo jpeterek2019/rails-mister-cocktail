@@ -1,0 +1,50 @@
+<div class="container">
+  <h1>Details about your cocktail</h1>
+
+  <div>
+    <p><%= link_to "Go back to overview page", cocktails_path %></p>
+    <h2><%= @cocktail.name %></h2>
+
+
+    <% @cocktail.doses.each do |dose| %>
+    <%= dose.description %>
+    <%= dose.ingredient.name %>
+    <%= link_to "🗑", dose_path, method: :delete, data: {confirm: "Are you sure?"} %>
+    <% end %>
+
+
+    <% @cocktail.reviews.each do |review| %>
+    <p> Rating: <%=review.rating %></p>
+    <p> Review: <%=review.content %></p>
+    <%= link_to "🗑", review_path, method: :delete, data: {confirm: "Are you sure?"} %>
+    <% end %>
+
+
+    <div>
+      <h1>Create a new Doses</h1>
+      <p>Add a dose to your cocktail <%= @cocktail.name %></p>
+
+      <div >
+        <p><%=  simple_form_for [@cocktail, @dose] do |f| %></p>
+        <p><%= f.input :description %></p>
+        <p> <%= f.association :ingredient, input_html: { class: 'select2' } %></p>
+        <%= f.submit "add a dose", class: "btn btn-primary" %>
+        <% end %>
+      </div>
+    </div>
+
+
+    <div>
+      <h1>Create a new Review</h1>
+      <p>Add a review to your cocktail <%= @cocktail.name %></p>
+
+      <div >
+        <p><%=  simple_form_for [@cocktail, @review] do |f| %></p>
+        <p><%= f.input :content %></p>
+        <p><%= f.input :rating %></p>
+        <%= f.submit "add a review", class: "btn btn-primary" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <!--  -->
