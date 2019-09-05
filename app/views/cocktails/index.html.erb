@@ -1,9 +1,21 @@
 
 <div class="container">
-  <h1>Cocktail Menu</h1>
-  <% @cocktails.each do |cocktail| %>
-  <p><%= link_to cocktail.name, cocktail_path(cocktail) %></p>
-  <% end %>
+  <div class="row">
+    <h1 class='col-12 mt-3'>Cocktail Menu</h1>
 
-  <p class="btn btn-outline-primary my-2 my-sm-0 0"><%= link_to 'Add a new cocktail', new_cocktail_path %></p>
+    <% @cocktails.each do |cocktail| %>
+
+    <div class="card col-5 p-3 m-2" style="width: 18rem;">
+      <img src="https://dishesdelish.com/wp-content/uploads/2018/06/Tequila-Sunrise-Cocktail-7.jpg" class="card-img-top" alt="image">
+      <div class="card-body">
+        <h5 class="card-title"><%= link_to cocktail.name, cocktail_path(cocktail) %></h5>
+
+        <span class="btn btn-outline-primary my-2 my-sm-0 0"><%= link_to "Add a cocktail", new_cocktail_path %></span>
+      </div>
+
+
+    </div>
+    <% end %>
+  </div>
 </div>
+

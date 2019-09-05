@@ -14,9 +14,9 @@
 
 
     <% @cocktail.reviews.each do |review| %>
-    <p> Rating: <%=review.rating %></p>
+    <p> Rating: <%="*" * (review.rating) %></p>
     <p> Review: <%=review.content %></p>
-    <%= link_to "🗑", review_path, method: :delete, data: {confirm: "Are you sure?"} %>
+    <%= link_to "🗑", review_path(review), method: :delete, data: {confirm: "Are you sure?"} %>
     <% end %>
 
 
