@@ -7,7 +7,7 @@
 </div>
 
 <div class="container mt-4">
-  <p><%= link_to "Go back to overview page", cocktails_path %></p>
+  <p><%= link_to "Go back to overview page", root_path %></p>
   <%= simple_form_for [@cocktail] do |f| %>
   <%= f.input :name %>
   <%= f.submit "add a cocktail", class: "btn btn-primary" %>
