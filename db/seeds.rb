@@ -13,9 +13,6 @@
 require 'json'
 require 'open-uri'
 
-Dose.destroy_all
-Ingredient.destroy_all
-
 url = 'https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list'
 user_serialized = open(url).read
 
@@ -28,4 +25,4 @@ end
 puts "Just created list of ingredient"
 
 # check rails console to see what you have in the console (check Ingredient.all.count and Ingredient.all)
-Cocktail.destroy_all
+
