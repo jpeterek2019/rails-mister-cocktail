@@ -14,11 +14,13 @@
 </head>
 
 <body>
-
-<%= render 'components/navbar' %>
+<div class="content">
+  <%= render 'components/navbar' %>
   <%= yield %>
-
+  <%= render 'components/footer' %>
+</div>
   <%= javascript_include_tag "application" %> <!-- from app/assets/javascripts/application.js -->
   <%= javascript_pack_tag "application" %>    <!-- from app/javascript/packs/application.js -->
+
 </body>
 </html>
